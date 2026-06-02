@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automated Testing in Games — Montreal TPM Offsite 2026</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="stage" id="stage" data-mode="cover">
+
+  <div class="bg" id="bg"></div>
+  <div class="bg-veil"></div>
+
+  <div class="frame-head">
+    <img class="logo" src="unity-logo.png" alt="Unity">
+    <span class="ev">Montreal TPM Offsite 2026</span>
+  </div>
+  <div class="frame-foot">Unity<sup>®</sup></div>
+  <div class="pager" id="pager">01 / 13</div>
+
+  <div class="deck" id="deck">
+
+    <!--COVER -->
+    <section class="slide cover" data-type="cover">
+      <div class="cover-logo">
+        <img class="logo" style="width:34px;height:34px" src="unity-logo.png" alt="Unity">
+        <span class="wm">Unity<sup>®</sup></span>
+      </div>
+      <div class="cover-frame">
+        <div class="r d1 eyebrow" style="text-align:center"> bite-sized learnings</div>
+        <h1 class="r d2">Automated Testing<br>in Games</h1>
+      </div>
+      <div class="year">2 0 2 6</div>
+      <div class="cover-ev">Montreal TPM Offsite 2026</div>
+    </section>
+
+    <!-- WHY THIS -->
+    <section class="slide" data-type="content">
+      <div class="r d1 eyebrow">First — <b>why this matters</b></div>
+      <h2 class="r d2">Studios trust us inside their code.</h2>
+      <p class="r d3 lead" style="margin-top:0;max-width:66ch">USP co-develops features inside studios' games, and verifies engine features in real productions. We're handed other people's codebases and in both, our value rests on one thing: <strong>shipping changes that work, without breaking what already worked.</strong></p>
+    </section>
+
+    <!-- THE PAIN -->
+    <section class="slide" data-type="content">
+      <div class="r d1 eyebrow"><b>The Pain</b></div>
+      <div class="cols">
+        <div class="stack">
+          <h2 class="r d2">It worked when we handed it off.</h2>
+          <p class="r d3 lead" style="margin-top:0">Picture a co-dev engagement. We ship a change that looks clean, and everyone moves on.</p>
+          <div class="r d4 note">The fear isn't the feature we shipped. It's the <strong>regression</strong>: the existing system that quietly broke, in a corner nobody replayed.</div>
+        </div>
+        <div class="stack">
+          <div class="r d3 box hi">
+            <div class="h">The scenario</div>
+            <div class="p">Embedded in a studio's codebase, we ship what looks like a clean change. The only safety net that it didn't break anything is <strong>replaying it by hand.</strong></div>
+          </div>
+          <div class="r d4 box hi">
+            <div class="h">The regression</div>
+            <div class="p">Days before the studio's milestone, they hit it: our change quietly broke an existing system. <strong>It worked when we left it.</strong></div>
+          </div>
+          <div class="r d5 box">
+            <div class="h">The real cost</div>
+            <div class="p">Found late, on their timeline, with our name on it.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE PROBLEM -->
+    <section class="slide" data-type="content">
+      <div class="r d1 eyebrow"><b>The Problem</b></div>
+      <div class="cols">
+        <div class="stack">
+          <h2 class="r d2">The regression surface only grows</h2>
+          <ul class="arr">
+            <li class="r d3"><div>Every feature we add to a project is <strong>one more thing that can silently break</strong> ,  and it stays breakable for the rest of the engagement.</div></li>
+            <li class="r d4"><div>Re-checking it all <strong>by hand, every change</strong>, scales linearly: more surface → more hours → more chances to miss something.</div></li>
+            <li class="r d5"><div>The bottleneck lands on the <strong>milestone</strong>, exactly when no one can afford to slip.</div></li>
+          </ul>
+        </div>
+        <div class="r d3">
+          <div class="wall" id="wall"></div>
+          <div class="legend"><span>Each block = something that must be re-verified by hand, every time the project changes →</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE SOLUTION -->
+    <section class="slide" data-type="content" style="align-items:center;text-align:center">
+      <div class="r d1 eyebrow"><b>The Solution</b></div>
+      <h1 class="r d2" style="font-size:clamp(2.1rem,4.8vw,3.8rem)">It's just code that tests your code.</h1>
+      <p class="r d3 lead" style="margin-left:auto;margin-right:auto"><strong>Bots</strong> that run thousands of checks in <strong>milliseconds</strong>, automatically, every time someone pushes a change.</p>
+      <div class="r d4" style="display:flex;gap:.6rem;margin-top:1.8rem;flex-wrap:wrap;justify-content:center">
+        <span class="chip">No human in the loop</span>
+        <span class="chip">Runs on every change</span>
+        <span class="chip">Same checks, every release, forever</span>
+      </div>
+    </section>
+
+    <!-- THE SCOPE -->
+    <section class="slide" data-type="content">
+      <div class="r d1 eyebrow"><b>The Scope</b></div>
+      <h2 class="r d2">Here's the thing: we often don't even have QA.</h2>
+      <p class="r d3 lead" style="margin-top:0;max-width:70ch">Co-dev rarely comes with a dedicated QA team. When we lean on the studio's, they're stretched across their whole game, and our changes wait in the queue.</p>
+      <div class="two" style="margin-top:1.1rem">
+        <div class="r d4 box hi">
+          <div class="h">So the bots are the safety net: always on, nobody to ask</div>
+          <span class="chip">Does it still build?</span>
+          <span class="chip">Does the feature still return the right result?</span>
+          <span class="chip">Did our change break an existing system?</span>
+          <span class="chip">Does the scene still load?</span>
+        </div>
+        <div class="r d4 box hi">
+          <div class="h">Humans still do the judgment</div>
+          <span class="chip">Is this the right approach for their architecture?</span>
+          <span class="chip">Does the integration <em>fit</em> the studio?</span>
+          <span class="chip">Is the design sound?</span>
+          <span class="chip">Is the studio happy?</span>
+        </div>
+      </div>
+      <div class="r d5 note">So automation isn't replacing testers we don't have, it's the systematic check that runs on <strong>every change.</div>
+    </section>
+
+    <!-- THE TOOLBOX -->
+    <section class="slide" data-type="content">
+      <div class="r d1 eyebrow"><b>The Toolbox</b> · the kinds of tests, in Unity terms</div>
+      <h2 class="r d2" style="margin-bottom:1.1rem">Three layers, from fast to real</h2>
+      <div class="cols">
+        <div class="r d2">
+          <div class="pyr">
+            <div class="tier t1 r d3">End-to-end / Smoke <span class="sub">a few · on real hardware · slowest</span></div>
+            <div class="tier t2 r d4">Integration · Play Mode <span class="sub">dozens · loads a scene, simulates frames</span></div>
+            <div class="tier t3 r d5">Unit · Edit Mode <span class="sub">hundreds · pure logic, no game running · fastest</span></div>
+          </div>
+          <div class="r d5 legend" style="justify-content:center"><span>↑ more realistic &amp; slower &nbsp;·&nbsp; ↓ faster &amp; cheaper, run far more</span></div>
+          <div class="r d5 note" style="margin-top:1.1rem">Rule of thumb: <strong>many</strong> fast unit tests, <strong>fewer</strong> integration, <strong>a handful</strong> of end-to-end.</div>
+        </div>
+        <div class="stack">
+          <div class="r d3 box hi">
+            <div class="h">Unit · Edit Mode</div>
+            <div class="p">Checks one piece of logic on its own:  no scene, no game running. Milliseconds each, so you run hundreds.</div>
+            <div class="ex">damageFor(lvl:10, crit:true) == 250 <span class="ok">✓ 2 ms</span> <span class="c">// just the math</span></div>
+          </div>
+          <div class="r d4 box hi">
+            <div class="h">Integration · Play Mode</div>
+            <div class="p">Loads a real scene and simulates frames: checks the pieces work <em>together.</em></div>
+            <div class="ex">load Level → simulate jump →<br><span class="ok">assert</span> player lands, HUD updates</div>
+          </div>
+          <div class="r d5 box hi">
+            <div class="h">End-to-end / Smoke (BVT)</div>
+            <div class="p">Runs the actual build on real hardware: does it boot and survive?</div>
+            <div class="ex">build boots → loads main scene <span class="no">✗ crash</span> <span class="c">// the handoff regression</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERFORMANCE & MEMORY -->
+    <section class="slide" data-type="content">
+      <div class="r d1 eyebrow">And the one we live in — <b>Performance &amp; memory</b></div>
+      <div class="cols">
+        <div class="stack">
+          <h2 class="r d2" style="margin-bottom:1rem">A slowdown should fail the build, like any bug.</h2>
+          <p class="r d3 lead" style="margin-top:0">We spend our days profiling and optimizing,  but the gains quietly erode. The next change adds a few milliseconds; by the next milestone the win is gone.</p>
+          <div class="r d4 ex">measure("Town") → avgFrame ≤ 16.6 ms <span class="c">// else fail CI</span></div>
+          <div class="r d5 note">Set budgets, frame time, memory, draw calls, and let CI check every change. It turns optimization from a recurring firefight into a <strong>ratchet that only moves one way.</strong></div>
+        </div>
+        <div class="stack">
+          <div class="r d3 perf">
+            <div class="row head"><div>Metric</div><div class="b">Budget</div><div class="v">This change</div></div>
+            <div class="row fail"><div class="m">Frame time (avg)</div><div class="b">≤ 16.6 ms</div><div class="v">19.2 ms ✗</div></div>
+            <div class="row"><div class="m">Memory</div><div class="b">≤ 600 MB</div><div class="v">540 MB ✓</div></div>
+            <div class="row"><div class="m">Draw calls</div><div class="b">≤ 1,500</div><div class="v">1,210 ✓</div></div>
+          </div>
+          <div class="r d4 note">One change pushed frame time over budget, flagged on the PR automatically, before it ever merged.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CI PIPELINE -->
+    <section class="slide" data-type="content">
+      <div class="r d1 eyebrow">What “you know in 5 minutes” looks like</div>
+      <h2 class="r d2">Continuous Integration, in one picture</h2>
+      <div class="pipe">
+        <div class="node"><span class="t">Dev commits</span><span class="s">hits “save”</span></div>
+        <span class="arrow">→</span>
+        <div class="node"><span class="t">✓ Edit Mode</span><span class="s">logic · seconds</span></div>
+        <span class="arrow">→</span>
+        <div class="node"><span class="t">✓ Play Mode</span><span class="s">scene works</span></div>
+        <span class="arrow">→</span>
+        <div class="node fail"><span class="t">✗ Device smoke</span><span class="s">crash on target</span></div>
+        <span class="arrow">→</span>
+        <div class="node"><span class="t">🔔 Dev pinged</span><span class="s">~5 min later</span></div>
+      </div>
+      <div class="r d4" style="display:flex;gap:.8rem;margin-top:1.8rem;flex-wrap:wrap">
+        <span class="chip" style="background:#fff;color:#000;border-color:#fff;font-weight:700">Caught here = minutes to fix, dev still has the context</span>
+        <span class="chip">Caught at the milestone = days + a context-switch back</span>
+      </div>
+      <div class="r d5 note">That handoff regression? Caught here, in ~5 minutes, by a bot, before it ever reached the studio.</div>
+    </section>
+
+    <!-- RECAP -->
+    <section class="slide" data-type="content">
+      <div class="r d1 eyebrow"><b>Recap</b></div>
+      <h2 class="r d2">The five-minute version</h2>
+      <ul class="arr" style="max-width:90ch">
+        <li class="r d3"><div>Our job is to ship changes that <strong>don't break what already worked.</strong></div></li>
+        <li class="r d3"><div>Manual re-checking doesn't scale — <strong>automated tests run on every change</strong>, our safety net even when there's no QA.</div></li>
+        <li class="r d4"><div>Layers: fast <strong>unit (Edit Mode)</strong>, some <strong>integration (Play Mode)</strong>, a few <strong>smoke</strong> — plus <strong>performance budgets</strong> that fail the build on a regression.</div></li>
+        <li class="r d4"><div>The payoff: <strong>predictable milestones, trust with the studio, cost that crosses over.</strong></div></li>
+      </ul>
+      <div class="r d5 box inv" style="margin-top:1.5rem">
+        <div class="p">Start small with <strong>one smoke test.</strong> The whole idea: <strong>predictable work now, instead of firefighting later.</strong></div>
+      </div>
+    </section>
+
+    <!-- 13 · CLOSING -->
+    <section class="slide closing" data-type="closing">
+      <div class="cover-logo">
+        <img class="logo" style="width:34px;height:34px" src="unity-logo.png" alt="Unity">
+        <span class="wm">Unity<sup>®</sup></span>
+      </div>
+      <div style="position:relative;z-index:5">
+        <h1 class="r d2 quote">Thank you</h1>
+      </div>
+      <div class="year">2 0 2 6</div>
+      <div class="names"><span style="font-weight:700">Jerry Medeiros</span><span style="color:#aeb2b9">Senior Engineering Manager</span></div>
+    </section>
+
+  </div>
+</div>
+
+
+<script src="app.js"></script>
+</body>
+</html>
