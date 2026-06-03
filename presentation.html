@@ -130,12 +130,12 @@
       <div class="cols">
         <div class="r d2">
           <div class="pyr">
-            <div class="tier t1 r d3">End-to-end / Smoke <span class="sub">a few · on real hardware · slowest</span></div>
+            <div class="tier t1 r d3">End-to-end <span class="sub">a few · complex user journeys · slowest</span></div>
             <div class="tier t2 r d4">Integration · Play Mode <span class="sub">dozens · loads a scene, simulates frames</span></div>
             <div class="tier t3 r d5">Unit · Edit Mode <span class="sub">hundreds · pure logic, no game running · fastest</span></div>
           </div>
           <div class="r d5 legend" style="justify-content:center"><span>↑ more realistic &amp; slower &nbsp;·&nbsp; ↓ faster &amp; cheaper, run far more</span></div>
-          <div class="r d5 note" style="margin-top:1.1rem">Rule of thumb: <strong>many</strong> fast unit tests, <strong>fewer</strong> integration, <strong>a handful</strong> of end-to-end.</div>
+          <div class="r d5 note" style="margin-top:1.1rem">Rule of thumb: <strong>many</strong> unit, <strong>fewer</strong> integration, <strong>a few</strong> end-to-end. Start with a <em>smoke test</em> — the simplest E2E: does it boot.</div>
         </div>
         <div class="stack">
           <div class="r d3 box hi">
@@ -149,9 +149,9 @@
             <div class="ex">load Level → simulate jump →<br><span class="ok">assert</span> player lands, HUD updates</div>
           </div>
           <div class="r d5 box hi">
-            <div class="h">End-to-end / Smoke (BVT)</div>
-            <div class="p">Runs the actual build on real hardware: does it boot and survive?</div>
-            <div class="ex">build boots → loads main scene <span class="no">✗ crash</span> <span class="c">// the handoff regression</span></div>
+            <div class="h">End-to-end (E2E)</div>
+            <div class="p">Drives a <em>complex user journey</em> through the running game — many systems at once, like a real player.</div>
+            <div class="ex">launch → play → save → reload → resume <span class="no">✗</span> <span class="c">// broke</span></div>
           </div>
         </div>
       </div>
@@ -208,7 +208,7 @@
       <ul class="arr" style="max-width:90ch">
         <li class="r d3"><div>Our job is to ship changes that <strong>don't break what already worked.</strong></div></li>
         <li class="r d3"><div>Manual re-checking doesn't scale — <strong>automated tests run on every change</strong>, our safety net even when there's no QA.</div></li>
-        <li class="r d4"><div>Layers: fast <strong>unit (Edit Mode)</strong>, some <strong>integration (Play Mode)</strong>, a few <strong>smoke</strong> — plus <strong>performance budgets</strong> that fail the build on a regression.</div></li>
+        <li class="r d4"><div>Layers: fast <strong>unit (Edit Mode)</strong>, some <strong>integration (Play Mode)</strong>, a few <strong>end-to-end</strong> — plus <strong>performance budgets</strong> that fail the build on a regression.</div></li>
         <li class="r d4"><div>The payoff: <strong>predictable milestones, trust with the studio, cost that crosses over.</strong></div></li>
       </ul>
       <div class="r d5 box inv" style="margin-top:1.5rem">
